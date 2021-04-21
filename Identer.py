@@ -30,6 +30,6 @@ for x in range(0,len(content_list)-2):
         else:
             pass
 
-f = open('base.txt', 'w')
+f = open('base.html', 'w')
 for x in content_list:
     f.write(x + ' ')
