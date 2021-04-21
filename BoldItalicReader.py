@@ -1,7 +1,8 @@
-from docx import *
+import docx
+from docx.shared import Pt
 
 #Reads a document in docx format
-document = Document('base.docx')
+document = docx.Document('base.docx')
 
 #opens a file in html format
 f = open('base.html', 'a')
@@ -12,14 +13,14 @@ italics=[]
 for para in document.paragraphs:
     for run in para.runs:
         if run.italic :
-            italics.append(run.text)
-            f.write('<i>'+run.text+'</i>')
+            run.text = '<i>'+run.text+'</i>'
         if run.bold :
-            bolds.append(run.text)
-            f.write('<b>'+run.text+'</b>')
-        else:
-            f.write(run.text)
+            run.text = '<b>'+run.text+'</b>'
+        if run.font.size > Pt(40):
+            run.text = '<h1>'+run.text+'</h1>'
+        f.write(run.text)
+        
+        
 f.close()
 boltalic_Dict={'bold_phrases':bolds,
             'italic_phrases':italics}
-
