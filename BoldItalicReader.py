@@ -5,7 +5,7 @@ from docx.shared import Pt
 document = docx.Document('base.docx')
 
 #opens a file in html format
-f = open('base.html', 'a')
+f = open('base.txt', 'a')
 bolds=[]
 italics=[]
 
@@ -13,11 +13,11 @@ italics=[]
 for para in document.paragraphs:
     for run in para.runs:
         if run.italic :
-            run.text = '<i>'+run.text+'</i>'
+            run.text = '<i> '+run.text+' </i> '
         if run.bold :
-            run.text = '<b>'+run.text+'</b>'
+            run.text = '<b> '+run.text+' </b> '
         if run.font.size > Pt(40):
-            run.text = '<h1>'+run.text+'</h1>'
+            run.text = '<h1> '+run.text+' </h1> '
         f.write(run.text)
         
         
