@@ -7,9 +7,9 @@ for x in content_list:
     else:
         pass
 f.close()
+print(content_list)
 for x in range(0,len(content_list)-2):
     if x != len(content_list)-1:
-        
         if (content_list[x] == '</h1>') and (content_list[x+1] == '<h1>'):
             poped = content_list.pop(x)
             poped1 = content_list.pop(x)
@@ -29,7 +29,13 @@ for x in range(0,len(content_list)-2):
             poped1 = content_list.pop(x)
         else:
             pass
+for x in range(0,len(content_list)-1):
+    if content_list[x] == '</p>':
+        content_list.insert(x+1, '\n')
+    else:
+        pass
 
+print(content_list)
 f = open('base.html', 'w')
 for x in content_list:
     f.write(x + ' ')
