@@ -1,3 +1,5 @@
+# Script by Vedant Kulkarni
+
 import docx
 from docx.shared import Pt
 
