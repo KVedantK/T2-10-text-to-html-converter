@@ -4,5 +4,6 @@ from . import views
 urlpatterns = [
     path('',views.Home),
     path('Convert',views.Convert),
-    path('Download', views.download_file)
+    path('Download', views.download_file),
+    path('Copy', views.Copy)
 ]

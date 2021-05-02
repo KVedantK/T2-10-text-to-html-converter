@@ -18,6 +18,8 @@
         </div>
         <p class="head text " >Hey here we convert your Text into standard HTML code .</p>
         <p class="text">Choose your docx file below and submit  , the converted HTML form will be shown below . </p>
+        <p class="text">Remember to avoid any images in the text for now we will let you know once the things are updated </p>
+        
       
     </section>
     <!-- Input docx file section -->
@@ -26,7 +28,7 @@
     <form method="POST" class="post-form" enctype="multipart/form-data" action="Convert">  
         {% csrf_token %}  
         <label for=""></label>
-        <input type="file" accept="docx/text" name="inpfile">
+        <input type="file" accept="docx" name="inpfile">
         <button type="submit">Upload !</button> 
     </form>
 
@@ -41,10 +43,10 @@
             {{output}}
         </code>
     </div>
-    <button>Copy</button>
+    <a href="/Copy"><button>Copy </button></a>
     <a href="/Download" download><button>Download </button></a>
    </section>
 </section>
-
+{{alert}}
 </body>
 </html>

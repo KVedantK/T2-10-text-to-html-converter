@@ -38,4 +38,14 @@ def download_file(request):
     response['Content-Disposition'] = "attachment; filename=%s" % filename
     return response
 
+def Copy(request):
+    BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    filename = 'base.html'
+    path = open(filename, 'r')
+    context = path.read()
     
+    import pyperclip
+
+    pyperclip.copy(context)
+
+    return render(request, 'index.html', {'output' : context, 'alert': 'Text Copied'})
